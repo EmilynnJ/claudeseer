@@ -1,0 +1,214 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - CLERK_SECRET_KEY=${CLERK_SECRET_KEY}
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+      - STRIPE_WEBHOOK_SECRET=${STRIPE_WEBHOOK_SECRET}
+      - SECRET_KEY=${SECRET_KEY}
+      - ADMIN_EMAIL=${ADMIN_EMAIL}
+    volumes:
+      - ./backend:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - PUBLIC_CLERK_PUBLISHABLE_KEY=${VITE_CLERK_PUBLISHABLE_KEY}
+      - PUBLIC_STRIPE_PUBLISHABLE_KEY=${VITE_STRIPE_PUBLIC_KEY}
+      - PUBLIC_API_URL=http://localhost:8000
+      - PUBLIC_WS_URL=ws://localhost:8000
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: npm run dev -- --host
+
+---
+# backend/requirements.txt
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-socketio==5.10.0
+stripe==7.0.0
+clerk-backend-api==0.1.1
+sqlalchemy==2.0.23
+asyncpg==0.29.0
+python-dotenv==1.0.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+python-multipart==0.0.6
+aiofiles==23.2.1
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+redis==5.0.1
+celery==5.3.4
+
+---
+# frontend/package.json
+{
+  "name": "soulseer-frontend",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "^3.0.0",
+    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^3.0.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "svelte": "^4.2.7",
+    "svelte-check": "^3.6.0",
+    "tailwindcss": "^3.3.0",
+    "tslib": "^2.4.1",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.3"
+  },
+  "type": "module",
+  "dependencies": {
+    "@clerk/clerk-js": "^4.68.0",
+    "@stripe/stripe-js": "^2.2.0",
+    "socket.io-client": "^4.6.0"
+  }
+}
+
+---
+# frontend/tailwind.config.js
+export default {
+  content: ['./src/**/*.{html,js,svelte,ts}'],
+  theme: {
+    extend: {
+      colors: {
+        'primary-pink': '#FF69B4',
+        'dark-bg': '#0a0a0a',
+        'gold-accent': '#FFD700',
+      },
+      fontFamily: {
+        'alex-brush': ['Alex Brush', 'cursive'],
+        'playfair': ['Playfair Display', 'serif'],
+      },
+      animation: {
+        'twinkle': 'twinkle 3s infinite',
+        'pulse': 'pulse 2s infinite',
+      },
+    },
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
+}
+
+---
+# frontend/vite.config.js
+import { sveltekit } from '@sveltejs/kit/vite';
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+  plugins: [sveltekit()],
+  server: {
+    port: 5173,
+    host: true,
+  },
+});
+
+---
+# backend/Dockerfile
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+---
+# frontend/Dockerfile
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci
+
+COPY . .
+
+EXPOSE 5173
+CMD ["npm", "run", "dev", "--", "--host"]
+
+---
+# Vercel deployment (vercel.json)
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    },
+    {
+      "src": "backend/app/main.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/app/main.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend/$1"
+    }
+  ],
+  "env": {
+    "DATABASE_URL": "@database_url",
+    "CLERK_SECRET_KEY": "@clerk_secret_key",
+    "STRIPE_SECRET_KEY": "@stripe_secret_key",
+    "PUBLIC_CLERK_PUBLISHABLE_KEY": "@clerk_publishable_key",
+    "PUBLIC_STRIPE_PUBLISHABLE_KEY": "@stripe_publishable_key"
+  }
+}
+
+---
+# Setup script (setup.sh)
+#!/bin/bash
+
+echo "🔮 Setting up SoulSeer Application..."
+
+# Backend setup
+echo "📦 Setting up Python backend..."
+cd backend
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+# Frontend setup
+echo "📦 Setting up SvelteKit frontend..."
+cd ../frontend
+npm install
+
+# Database setup
+echo "🗄️ Setting up database..."
+# Note: Ensure your Neon database URL is configured in .env
+
+echo "✨ Setup complete! To start the application:"
+echo "1. Backend: cd backend && uvicorn app.main:app --reload"
+echo "2. Frontend: cd frontend && npm run dev"
+echo "Or use Docker: docker-compose up"
