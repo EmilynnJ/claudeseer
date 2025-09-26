@@ -1,0 +1,378 @@
+App Name: SoulSeer
+Main framework : 
+Frontend : Sveltekit (FASTAPI) 
+Backend: Python 
+Monorepo-all in one deployment!! 
+
+Images
+ * Background Image: https://i.postimg.cc/sXdsKGTK/DALL-E-2025-06-06-14-36-29-A-vivid-ethereal-background-image-designed-for-a-psychic-reading-app.webp
+ * Home Page Hero Image: https://i.postimg.cc/tRLSgCPb/HERO-IMAGE-1.jpg
+ * Founder Image: https://i.postimg.cc/s2ds9RtC/FOUNDER.jpg
+About SoulSeer
+At SoulSeer, we are dedicated to providing ethical, compassionate, and judgment-free spiritual guidance. Our mission is twofold: to offer clients genuine, heart-centered readings and to uphold fair, ethical standards for our readers.
+Founded by psychic medium Emilynn, SoulSeer was created as a response to the corporate greed that dominates many psychic platforms. Unlike other apps, our readers keep the majority of what they earn and play an active role in shaping the platform.
+SoulSeer is more than just an app—it’s a soul tribe. A community of gifted psychics united by our life’s calling: to guide, heal, and empower those who seek clarity on their journey.
+Purpose and Vision
+SoulSeer is a premium platform connecting spiritual readers with clients seeking guidance. The app embodies a mystical yet professional atmosphere while providing robust functionality for seamless spiritual consultations. All design elements should prioritize intuitive user experience alongside the ethereal aesthetic.
+Application Requirements and Quality Assurance
+Avoid Common AI Errors
+ * Implement each feature completely before moving to the next.
+ * Test edge cases thoroughly in all user flows.
+ * Verify all connections between different app components.
+ * Double-check UI implementations against the design specifications.
+Problem-Solving Methodology
+ * Break complex features into smaller, manageable components.
+ * When facing implementation challenges, explore multiple approaches.
+ * Document solutions to prevent repeating similar mistakes.
+ * Apply systematic testing to each feature before integration.
+Self-Correction Mechanisms
+ * Implement comprehensive error logging.
+ * Create fallback mechanisms for critical functionality.
+ * Build recovery paths for failed transactions or connections.
+ * Design user-friendly error messages that offer clear next steps.
+Theme and Aesthetic
+ * Description: Celestial, mystical, and ethereal: Dark-mode default with pink, black, gold, and white accents.
+Homepage Header and Tagline
+ * Main Header:
+   * Text: SoulSeer
+   * Font: Alex Brush
+   * Color: pink
+ * Hero Image Placement: Between header and tagline
+ * Tagline:
+   * Text: A Community of Gifted Psychics
+   * Font: Playfair Display
+Typography Specifications
+ * Headings:
+   * Font: Alex Brush
+   * Color: #FF69B4
+ * Body Text:
+   * Font: Playfair Display
+   * Colors: White on dark backgrounds (#FFFFFF), Black on light backgrounds (#000000)
+ * UI Elements: Maintain font consistency across buttons, menus, and interactive elements.
+ * Readability: Ensure sufficient contrast ratios for accessibility compliance.
+Visual Design Elements
+ * Cosmic and mystical design elements (stars, moons, celestial patterns).
+ * Smooth, subtle animations for transitions and interactive elements.
+ * Consistent spacing and alignment throughout the interface.
+ * Spiritual, mystical, ethereal background with strategically placed gold accents.
+ * The main color scheme is a variety of pinks and black.
+ * Visual emphasis on the mystical nature of the services.
+ * Intuitive iconography that blends with the celestial theme.
+Core Features and Functionality
+User Accounts and Role System
+ * Clients:
+   * Account creation with email or social authentication.
+   * Ability to book and participate in readings (chat, call, video).
+   * Join and interact in live streams.
+   * Purchase and send virtual gifts.
+   * Browse and purchase from the shop.
+   * Manage payment methods and transaction history.
+ * Readers:
+   * Comprehensive profile management (bio, services, pricing).
+   * Availability calendar with time zone support.
+   * Service customization options.
+   * Earnings dashboard with detailed analytics.
+   * Live session management tools.
+ * Administrators:
+   * Complete platform oversight and management.
+   * Content moderation capabilities.
+   * Dispute resolution interface.
+   * Payment processing monitoring.
+   * Performance analytics dashboard.
+   * Add new reader accounts through the admin dashboard.
+   * Manage inventory through Stripe via the admin dashboard.
+Home Screen and Navigation
+ * Featured Content:
+   * Main header "SoulSeer" in Alex Brush font (pink) at the top of the homepage.
+   * Hero image placement directly below the header.
+   * Tagline "A Community of Gifted Psychics" in Playfair Display below the hero image.
+   * Prominently display currently online readers with availability.
+   * Highlight active live streams with viewer counts.
+   * Showcase featured or promoted spiritual services.
+   * New product announcements and special offers.
+ * Quick Access:
+   * One-tap access to live on-demand pay-per-minute reading services.
+   * Simplified booking flow for returning users.
+   * Personalized recommendations based on previous activity.
+On-Demand Pay-Per-Minute Reading System
+ * Communication Channels:
+   * Text chat with multimedia support.
+   * Voice-only calls for privacy-conscious users.
+   * Video sessions for face-to-face readings.
+   * End-to-end encryption for all communication.
+   * Custom-coded WebRTC reading system.
+ * Session Management:
+   * Real-time minute tracking with a visible countdown.
+   * Automatic billing in set increments (minute by minute).
+   * Disconnection protection with a grace period for reconnection.
+   * Session extension options with client approval.
+   * Intelligent timeout handling to prevent billing errors.
+   * Automatic session summaries and saved chat transcripts.
+   * Proper handling of network fluctuations during sessions.
+ * Quality Assurance:
+   * Post-session rating system (1-5 stars).
+   * Detailed review submission form.
+   * Reader response capability to client feedback.
+   * Dispute resolution process for contested sessions.
+   * Automated detection of suspicious session patterns.
+User Dashboards
+ * Reader Dashboard Features:
+   * Status toggle (online/offline/busy) with visual indicators.
+   * Earnings tracker (daily accumulation, pending payout balance, historical earnings with filtering options, revenue breakdown by service type).
+   * Session history with detailed metrics.
+   * Client engagement analytics (retention rates, return frequency, average session duration, feedback trends).
+   * Set per-minute rates individually for live chat, phone, and video readings.
+ * Client Dashboard Features:
+   * Comprehensive booking history.
+   * Upcoming scheduled sessions with calendar integration.
+   * Account balance management (add funds interface, auto-reload options, transaction history with itemized entries).
+   * Favorite readers list with availability notifications.
+   * Personal reading notes and history.
+   * Order history.
+Live Streaming and Virtual Gifting
+ * Streaming Capabilities:
+   * High-quality video streaming optimized for mobile and desktop.
+   * Chat overlay for viewer interaction.
+   * Schedule announcement and reminder system.
+   * Recording options for premium content creation.
+ * Virtual Gifting System:
+   * Animated gift displays during streams.
+   * Gift value conversion to reader earnings.
+   * Gifting leaderboards and recognition.
+   * Custom gift creation for special events.
+ * Stream Types:
+   * Public streams accessible to all users.
+   * Premium streams for subscribers or paying viewers.
+   * Private streams for exclusive client groups.
+Community and Messaging
+ * Forum Functionality:
+   * Topic-based discussion boards.
+   * Reader-created content areas.
+   * Media-rich posting capabilities.
+   * Threaded conversations for easy following.
+ * Moderation Tools:
+   * Content flagging system.
+   * Automated inappropriate content detection.
+   * Administrator review queue.
+   * Community guidelines enforcement.
+ * Messaging System:
+   * Free basic messaging between users.
+   * Premium direct access to readers (free for clients to message readers; reader decides if a response is free or paid).
+   * Group messaging capabilities.
+   * Message scheduling for important reminders.
+Marketplace
+ * Service Listings:
+   * Private reading scheduling system.
+   * Instant availability indicators.
+   * Custom package creation tools.
+   * Gift reading options for friends.
+ * Digital Products:
+   * Secure delivery system for digital guides.
+   * Meditation audio with streaming capability.
+   * Downloadable tarot spreads and interpretations.
+   * Course and lesson sequencing.
+ * Physical Products:
+   * Inventory management integration.
+   * Shipping and tracking integration.
+   * Product variant management (sizes, colors).
+   * Bundle creation and discounting.
+   * Products synced with Stripe products.
+ * Commission Structure:
+   * Automated revenue splitting for reader products.
+   * Promotional tools for featured products.
+   * Analytics for product performance.
+Payment and Revenue Management
+ * Payment Processing:
+   * Secure Stripe integration with tokenized card storage.
+   * Multiple payment method support.
+   * International currency handling.
+   * Tax calculation and reporting.
+ * Revenue Distribution:
+   * 70/30 revenue split (70% to readers, 30% to platform).
+   * Daily automatic payout processing if balance > $15.
+   * Minimum payout thresholds with reader control.
+   * Tax document generation and management.
+ * Security Measures:
+   * Advanced fraud detection algorithms.
+   * Chargeback prevention and handling.
+   * Suspicious activity flagging.
+   * Payout verification steps.
+Administrative Controls
+ * User Management:
+   * User verification processes.
+   * Reader application and approval workflow.
+   * Account restriction and limitation tools.
+   * User support ticket system.
+   * Create Reader Profiles.
+   * Edit Reader profiles including uploading profile pictures.
+ * Content Oversight:
+   * Content review queues.
+   * Policy enforcement tools.
+   * Automated content scanning.
+   * Reporting management system.
+ * Financial Administration:
+   * Complete transaction history access.
+   * Refund and adjustment capabilities.
+   * Revenue reporting with customizable parameters.
+   * Tax management and reporting.
+ * Analytics Platform:
+   * User engagement metrics.
+   * Platform performance indicators.
+   * Revenue forecasting tools.
+   * Growth trend visualization.
+Navigation Structure
+ * Home: Dynamic content featuring online readers, active streams, and daily highlights.
+ * Readings: Category-based reader search with filtering options for immediate services.
+ * Live: Current streams with categorization and scheduled upcoming events.
+ * Shop: Organized marketplace with categories for services, digital, and physical items.
+ * Community: Forum access with trending topics and reader insights.
+ * Messages: Unified inbox for all communication types.
+ * Dashboard: Role-specific interface with relevant metrics and management tools.
+ * Help Center: Searchable FAQs, video tutorials, and support contact options.
+ * Profile: Personal settings, preference management, and account details.
+ * Policies: TOS, Privacy, End User agreement, etc.
+Technical Specifications
+Core Platform
+ * Responsive design with a mobile-first approach.
+ * PWA capabilities for offline functionality.
+ * Cross-platform consistency.
+ * Performance optimization for lower-end devices.
+ * Comprehensive automated testing framework.
+ * Modular architecture to allow feature expansion.
+Integration Requirements
+ * Custom-coded WebRTC reading system for all real-time communication (chat, voice, video).
+ * Clerk for authentication.
+ * Neon for the database.
+ * Stripe Connect for payment processing and reader payouts.
+ * Custom-coded WebRTC reading system for live streaming.
+ * Secure cloud storage for digital product delivery.
+ * Push notification service for real-time alerts.
+ * Analytics platform for user behavior tracking.
+ * Error monitoring and reporting system.
+Security Implementation
+ * End-to-end encryption for all sensitive communications.
+ * Secure payment handling with PCI compliance.
+ * Data encryption at rest and in transit.
+ * Regular security audits and penetration testing.
+ * GDPR and CCPA compliance for user data.
+Enhanced Features
+ * Automated Session Summarization: Yes
+ * Engagement Tools:
+   * Customizable push notifications.
+   * Email marketing integration.
+   * Special event announcement system.
+ * Growth Features:
+   * Social sharing with custom content generation.
+   * SEO optimization for reader profiles.
+ * Accessibility Enhancements:
+   * Screen reader compatibility.
+   * Colorblind-friendly mode with alternative indicators.
+   * Text size adjustment options.
+   * Voice navigation capabilities.
+   * Mobile friendly.
+Critical Thinking and Error Prevention Guidelines
+Problem-Solving Approach
+ * Systematic analysis of user journeys and edge cases before feature implementation.
+ * Connection verification with error handling and fallback for all integrations.
+ * Iterative test-feedback-refine cycles for each major feature.
+Common Pitfall Prevention
+ * Double-transaction prevention in payment processing.
+ * Session timeout protections to avoid overcharging.
+ * Robust refund and dispute resolution systems.
+ * Maintain a consistent design language.
+ * Ensure responsive design for all device sizes.
+ * Verify animations enhance usability.
+ * Proper validation for user inputs.
+ * Clear database schemas to prevent orphaned records.
+Pattern Recognition and Learning
+ * Comprehensive error logging.
+ * Track user friction points for improvement.
+ * Automated regression testing.
+Self-Correction Protocol
+ * Question assumptions about user behavior and technical requirements.
+ * Identify potential failure points in the user journey.
+ * Test edge cases before finalizing.
+ * Document solution patterns to prevent repetitive errors.
+Technical Guardrails
+ * Rate limiting on API endpoints.
+ * Robust session handling and timeout.
+ * Concurrency control in critical operations.
+ * Maintain transactional integrity (ACID) where needed.
+Cross-Functional Verification
+ * Verify user flow against business requirements.
+ * Confirm security standards are met.
+ * Test accessibility compliance.
+ * Validate performance over various network conditions.
+Implementation Priorities
+ * User account system and core infrastructure.
+ * Payment processing integration.
+ * Basic reading functionality (chat, call, video).
+ * Reader and client dashboards.
+ * Marketplace capabilities.
+ * Live streaming features.
+ * Community and social elements.
+ * Enhanced AI and personalization features.
+Additional Notes
+ * Client Prepayment: The client prepays for pay-per-minute readings by adding money to their balance, spending only what they use (minutes times the reader’s per-minute rate).
+ * Reader Account Creation: Reader accounts can only be created by an admin through the admin dashboard.
+WebRTC System Instructions
+ * Full Implementation Required: Yes
+ * No SDKs Allowed: Yes
+ * Use Vanilla APIs:
+   * RTCPeerConnection
+   * getUserMedia
+   * ICE
+   * SDP
+Tech Stack
+ * Frontend: Sveltekit (FASTAPI) 
+ * Styling: TailwindCSS
+ * Backend: Python
+ * Database: Neon
+ * Payment: Stripe (Connect + Pay-per-minute billing)
+Required Functionality
+ * Roles and Routing:
+   * Secure login for client and reader roles.
+   * Role-based routing and conditional rendering.
+ * Session Flow:
+   * Clients view readers and request sessions.
+   * Readers accept, creating secure unique RTC rooms.
+   * Pre-call checks for camera, mic, and browser compatibility.
+   * Start video/audio session with custom WebRTC signaling.
+   * Use WebSocket or Socket.io for signaling.
+ * Media Control:
+   * Local/remote video with mute and camera toggle.
+   * Detect disconnection and implement a reconnect flow.
+   * End the session if the call drops or the client balance hits zero.
+ * Real-Time Billing:
+   * Start a per-minute billing timer on session start.
+   * Charge the client every minute or every 5 seconds (for testing).
+   * Pause billing if the connection drops.
+   * End the session if the client balance is below the reader's rate.
+   * Store session data (reader_id, client_id, session_id, start_time, end_time, total_minutes, amount_charged) in the database.
+ * UI:
+   * Video call UI with timers, controls, names, rates, and balance.
+   * Full live chat box.
+   * Pre-session "waiting on reader" screen.
+   * Post-session summary.
+ * Live Streaming with Gifting:
+   * Separate live stream rooms for readers.
+   * Clients watch, chat, and send gifts via Stripe microtransactions.
+   * The reader dashboard shows earnings from gifts and the viewer count.
+   * Animate gifts on screen and update balances in real-time.
+Important Notes
+ * Build full signaling logic for ICE, STUN/TURN, and SDP exchange.
+ * No placeholders or stubs; full, real, styled UI with TailwindCSS.
+ * Full Stripe logic with a payment timer and transactions is required.
+ * The backend manages auth, signaling, billing, session logs, and Stripe.
+ * All components and APIs must be functional, tested, and real.
+ * Readers must receive notifications of incoming new readings.
+Environment Variables (.env)
+ * VITE_CLERK_PUBLISHABLE_KEY: pk_test_cmVsYXhlZC1jcmF5ZmlzaC0zNC5jbGVyay5hY2NvdW50cy5kZXYk
+ * CLERK_SECRET_KEY: sk_test_VjQhVvA0XPOVyrZx1DjFRPSjRfrZ1FvbCcQpEOt6uO
+ * VITE_CLERK_FRONTEND_URL_API: https://relaxed-crayfish-34.clerk.accounts.dev
+ * DATABASE_URL: psql 'postgresql://neondb_owner:npg_7FeZPCl9HpdM@ep-lingering-cloud-aecjnup4-pooler.c-2.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require'
+ * TURN_SERVERS: relay1.expressturn.com:3480
+ * TURN_USERNAME: efC31HLVNPO2ESV7EI
+ * TURN_CREDENTIAL: p3iL2wVPAhMAlmgD
+ * WEBRTC_ICE_SERVERS: [{"urls":"stun:stun.l.google.com:19302"},{"urls":"stun:stun1.l.google.com:19302"}]
+

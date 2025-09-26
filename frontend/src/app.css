@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-pink: #FF69B4;
+  --color-gold: #FFD700;
+  --color-purple: #8A2BE2;
+}
+
+.font-alex-brush {
+  font-family: 'Alex Brush', cursive;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.text-gold-400 {
+  color: var(--color-gold);
+}
+
+.bg-gradient-mystical {
+  background: linear-gradient(135deg, #000000 0%, #4A148C 50%, #000000 100%);
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.mystical-border {
+  border: 1px solid rgba(255, 105, 180, 0.3);
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.1);
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
