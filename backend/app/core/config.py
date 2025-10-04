@@ -1,28 +1,28 @@
 from pydantic_settings import BaseSettings
-from typing import List
+from typing import List, Optional
 import os
 
 class Settings(BaseSettings):
     # Database
-    DATABASE_URL: str
+    DATABASE_URL: str = "sqlite:///./soulseer.db"
     
-    # Clerk Authentication
-    CLERK_SECRET_KEY: str
-    VITE_CLERK_PUBLISHABLE_KEY: str
+    # Clerk Authentication (Optional)
+    CLERK_SECRET_KEY: Optional[str] = None
+    VITE_CLERK_PUBLISHABLE_KEY: Optional[str] = None
     
-    # Stripe
-    STRIPE_SECRET_KEY: str
-    STRIPE_PUBLISHABLE_KEY: str
-    STRIPE_WEBHOOK_SECRET: str
+    # Stripe (Optional for development)
+    STRIPE_SECRET_KEY: Optional[str] = None
+    STRIPE_PUBLISHABLE_KEY: Optional[str] = None
+    STRIPE_WEBHOOK_SECRET: Optional[str] = None
     
     # WebRTC
-    TURN_SERVERS: str
-    TURN_USERNAME: str
-    TURN_CREDENTIAL: str
-    WEBRTC_ICE_SERVERS: str
+    TURN_SERVERS: str = "relay1.expressturn.com:3480"
+    TURN_USERNAME: str = "your_username"
+    TURN_CREDENTIAL: str = "your_credential"
+    WEBRTC_ICE_SERVERS: str = '[{"urls":"stun:stun.l.google.com:19302"}]'
     
     # JWT
-    JWT_SECRET: str
+    JWT_SECRET: str = "your-super-secret-jwt-key-change-this-in-production"
     JWT_ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 15
     

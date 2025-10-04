@@ -10,6 +10,7 @@ import os
 from ..core.database import SessionLocal
 from ..models.user import User
 from ..core.config import settings
+from ..services.clerk_service import clerk_service
 
 router = APIRouter()
 security = HTTPBearer()

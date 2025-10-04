@@ -27,6 +27,10 @@ if [ ! -f .env ]; then
     echo "📝 Created .env file. Please update it with your actual values."
 fi
 
+# Initialize database
+echo "🗄️ Initializing database..."
+python init_db.py
+
 cd ..
 
 # Frontend setup

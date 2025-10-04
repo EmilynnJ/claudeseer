@@ -27,7 +27,7 @@ class Transaction(Base):
     description = Column(Text)
     stripe_payment_intent_id = Column(String)
     stripe_charge_id = Column(String)
-    metadata = Column(Text)  # JSON as text
+    transaction_metadata = Column(Text)  # JSON as text
     created_at = Column(DateTime, server_default=func.now())
     updated_at = Column(DateTime, server_default=func.now(), onupdate=func.now())
 

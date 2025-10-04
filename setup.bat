@@ -28,6 +28,10 @@ if not exist .env (
     echo 📝 Created .env file. Please update it with your actual values.
 )
 
+REM Initialize database
+echo 🗄️ Initializing database...
+python init_db.py
+
 cd ..
 
 REM Frontend setup
